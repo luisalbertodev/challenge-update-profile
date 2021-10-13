@@ -1,0 +1,72 @@
+{
+  "AUTH": {
+    "title": "¡Bienvenido de nuevo!",
+    "subtitle": "Por favor, ingrese a su cuenta.",
+    "emailField": "Correo eléctronico",
+    "passwordField": "Contraseña",
+    "rememberField": "¿Recuérdame?",
+    "btnSignIn": "Iniciar sesión",
+    "forgotPassword": "¿Recuperar contraseña?"
+  },
+  "PAGE404": {
+    "title": "404",
+    "subtitle": "Parece que estás perdido",
+    "description": "la página que busca no está disponible!",
+    "btnText": "Ir a inicio"
+  },
+  "HEADER": {
+    "logout": "Cerrar sesión"
+  },
+  "PROFILE": {
+    "generalInformation": "Datos fiscales",
+    "companyName": "Razón social",
+    "tradename": "Nombre comercial",
+    "nationality": "Nacionalidad",
+    "constitutionDate": "Fecha de constitución",
+    "rfc": "RFC",
+    "taxRegime": "Régimen Fiscal",
+    "industry": "Industria",
+    "addressLabel": "Domicilio",
+    "address": {
+      "streetOrAvenue": "Calle o Avenida",
+      "exteriorNumber": "Número exterior",
+      "interiorNumber": "Número interior",
+      "zipCode": "Código Postal ",
+      "coloniaOrUrbanization": "Colonia o Urbanización",
+      "cityOrTown": "Ciudad o Población",
+      "federativeEntityOrState": "Entidad Federativa o Estado",
+      "country": "País"
+    },
+    "proofOfAddress": "Comprobante de domicilio",
+    "TelephoneNumber": "Número telefónico",
+    "emailAddress": "Dirección de correo electrónico ",
+    "legalRepresentativeLabel": "Representante legal",
+    "legalRepresentative": {
+      "name": "Nombre",
+      "gender": "Género",
+      "dateOfBirth": "Fecha de nacimiento",
+      "federalEntityOfBirth": "Entidad Federativa de nacimiento",
+      "countryOfBirth": "País de nacimiento",
+      "nationality": "Nacionalidad",
+      "curp": "CURP",
+      "rfc": "RFC",
+      "address": "Domicilio",
+      "maritalStatus": "Estado civil",
+      "email": "Correo electrónico",
+      "telephone": "Teléfono",
+      "identificationDocument": "Documento de identificación "
+    },
+    "bankAccountLabel": "Cuenta bancaria",
+    "bankAccount": {
+      "clabe": "CLABE",
+      "bank": "Banco"
+    },
+    "btnSave": "Guardar cambios"
+  },
+  "ALERTS": {
+    "updateSuccess": "Cambio aplicado con exito",
+    "updateError": "Hubo un error al guardar los datos"
+  },
+  "loading": "Cargando...",
+  "version": "© 2021 Developed by @luisalbertodev v.B1.0.0"
+}
