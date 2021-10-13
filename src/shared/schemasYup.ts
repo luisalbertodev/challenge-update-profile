@@ -1,60 +1,67 @@
 import * as yup from 'yup';
-import { REGEX } from 'src/shared/data';
+import { REGEX, DICTIONARY_ERRORS } from 'src/shared/data';
 
 export const YupSchemaLogin = yup.object().shape({
-  emailAddress: yup.string().email('El correo ingreso no es valido').required('Ingrese su correo para continuar'),
+  emailAddress: yup.string()
+    .required(DICTIONARY_ERRORS.AUTH.fieldRequired)
+    .email(DICTIONARY_ERRORS.AUTH.emailInvalid),
   password: yup.string()
-    .required("Campo requerido")
-    .min(8, "Debe tener al menos 8 caracteres de longitud")
-    .matches(REGEX.oneLowerCase, 'Debe contener al menos una letra minúscula')
-    .matches(REGEX.oneUpperCase, 'Debe contener al menos una letra mayúscula')
-    .matches(REGEX.oneDigit, 'Debe contener al menos un dígito')
-    .matches(REGEX.specialCharacter, 'Debe contener un carácter especial'),
-  remember: yup.boolean().default(false)
+    .required(DICTIONARY_ERRORS.AUTH.fieldRequired)
+    .min(8, DICTIONARY_ERRORS.AUTH.passwordMinError)
+    .matches(REGEX.oneLowerCase, DICTIONARY_ERRORS.AUTH.oneLowerCaseError)
+    .matches(REGEX.oneUpperCase, DICTIONARY_ERRORS.AUTH.oneUpperCaseError)
+    .matches(REGEX.oneDigit, DICTIONARY_ERRORS.AUTH.oneDigitError)
+    .matches(REGEX.specialCharacter, DICTIONARY_ERRORS.AUTH.specialCharacterError),
+  remember: yup.boolean()
+    .default(false)
 });
 
 export const YupSchemaGeneralInformation = yup.object().shape({
-  companyName: yup.string().required('Ingresa campo'),
-  tradename: yup.string().required('Ingresa campo'),
-  nationality: yup.string().required('Ingresa campo'),
-  constitutionDate: yup.string().required('Ingresa campo'),
-  rfc: yup.string().required('Ingresa campo'),
-  taxRegime: yup.string().required('Ingresa campo'),
-  industry: yup.string().required('Ingresa campo'),
-  proofOfAddress: yup.string().required('Ingresa campo'),
-  TelephoneNumber: yup.string().length(10, 'El número de teléfono debe tener 10 caracteres').matches(REGEX.phone, 'El número de teléfono no es válido'),
-  emailAddress: yup.string().email('El correo ingreso no es valido').required('Ingrese su correo para continuar'),
+  companyName: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  tradename: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  nationality: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  constitutionDate: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  rfc: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  taxRegime: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  industry: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  proofOfAddress: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  TelephoneNumber: yup.string().
+    length(10, DICTIONARY_ERRORS.USER.phoneNumberMaxLenth)
+    .matches(REGEX.phone, DICTIONARY_ERRORS.USER.phoneNumberInvalid),
+  emailAddress: yup.string()
+    .required(DICTIONARY_ERRORS.AUTH.fieldRequired)
+    .email(DICTIONARY_ERRORS.AUTH.emailInvalid),
 });
 
 export const YupSchemaAddress = yup.object().shape({
-  streetOrAvenue: yup.string().required('Ingresa campo'),
-  exteriorNumber: yup.string().required('Ingresa campo').max(5, "Ingresa un número valido"),
-  interiorNumber: yup.string().max(5, "Ingresa un número valido"),
-  zipCode: yup.string().required('Ingresa campo').min(5, "Ingresa un código postal valido"),
-  coloniaOrUrbanization: yup.string().required('Ingresa campo'),
-  cityOrTown: yup.string().required('Ingresa campo'),
-  federativeEntityOrState: yup.string().required('Ingresa campo'),
-  country: yup.string().required('Ingresa campo'),
+  streetOrAvenue: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  exteriorNumber: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired).max(5, DICTIONARY_ERRORS.USER.numberInvalid),
+  interiorNumber: yup.string().max(5, DICTIONARY_ERRORS.USER.numberInvalid),
+  zipCode: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired).min(5, DICTIONARY_ERRORS.USER.zipCodeInvalid),
+  coloniaOrUrbanization: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  cityOrTown: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  federativeEntityOrState: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  country: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
 });
 
 
 export const YupSchemaLegalRepresentative = yup.object().shape({
-  name: yup.string().required('Ingresa campo'),
-  gender: yup.string().required('Ingresa campo'),
-  dateOfBirth: yup.string().required('Ingresa campo'),
-  federalEntityOfBirth: yup.string().required('Ingresa campo'),
-  countryOfBirth: yup.string().required('Ingresa campo'),
-  nationality: yup.string().required('Ingresa campo'),
-  curp: yup.string().required('Ingresa campo').max(18, "Ingresa una curp valida"),
-  rfc: yup.string().required('Ingresa campo'),
-  address: yup.string().required('Ingresa campo'),
-  maritalStatus: yup.string().required('Ingresa campo'),
-  email: yup.string().required('Ingresa campo'),
-  telephone: yup.string().required('Ingresa campo'),
-  identificationDocument: yup.string().required('Ingresa campo'),
+  name: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  gender: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  dateOfBirth: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  federalEntityOfBirth: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  countryOfBirth: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  nationality: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  curp: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired).max(18, DICTIONARY_ERRORS.USER.curpInvalid),
+  rfc: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  address: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  maritalStatus: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  email: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  telephone: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
+  identificationDocument: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
 });
 
 export const YupSchemaBankAccount = yup.object().shape({
-  clabe: yup.string().required('Ingresa campo').max(18, "Ingresa una clabe valida"),
-  bank: yup.string().required('Ingresa campo'),
+  clabe: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired).max(18, DICTIONARY_ERRORS.USER.clabeInvalid),
+  bank: yup.string().required(DICTIONARY_ERRORS.AUTH.fieldRequired),
 });

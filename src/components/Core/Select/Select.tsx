@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import { FC } from 'react';
 import { useController } from 'react-hook-form';
-
+import { useLanguage } from 'src/context/LanguagesContext';
 import { Col } from 'react-flexbox-grid';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -38,6 +38,7 @@ const Select: FC<IProps> = ({
   keyLabel = 'label',
   options = []
 }) => {
+  const { strings } = useLanguage();
   const {
     field: { ref, ...inputProps },
     fieldState: { invalid, error }
@@ -67,7 +68,9 @@ const Select: FC<IProps> = ({
             );
           })}
         </SelectMui>
-        {invalid && <FormHelperText>{error?.message}</FormHelperText>}
+        {invalid && (
+          <FormHelperText>{strings.ERRORS[error?.message]}</FormHelperText>
+        )}
       </FormControl>
     </Col>
   );

@@ -1,15 +1,14 @@
 /* eslint-disable no-empty */
 /* eslint-disable react/no-array-index-key */
 import { FC } from 'react';
-import { useController } from 'react-hook-form';
 import { Col } from 'react-flexbox-grid';
+import { useController } from 'react-hook-form';
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import Typography from '@mui/material/Typography';
 
-import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
@@ -17,6 +16,8 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
+import { useLanguage } from 'src/context/LanguagesContext';
+import { getBase64 } from 'src/helpers/utils';
 import * as S from './Upload.styled';
 
 interface IProps {
@@ -30,15 +31,6 @@ interface IProps {
   className?: string;
 }
 
-function getBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
-}
-
 const Upload: FC<IProps> = ({
   xs = 12,
   md = 6,
@@ -49,6 +41,7 @@ const Upload: FC<IProps> = ({
   hasSpacing = true,
   className
 }) => {
+  const { strings } = useLanguage();
   const {
     field: { onChange, value },
     fieldState: { invalid, error }
@@ -88,29 +81,29 @@ const Upload: FC<IProps> = ({
             {label}
           </Typography>
         </S.UploadStyled>
-        {value &&
-          [value].map((el, key) => {
-            const labelId = `checkbox-list-secondary-label-${key}`;
-            return (
-              <ListItem
-                key={key}
-                secondaryAction={
-                  <IconButton edge="end" onClick={() => onChange('')}>
-                    <DeleteOutlineOutlinedIcon />
-                  </IconButton>
-                }
-                disablePadding
-              >
-                <ListItemButton>
-                  <ListItemAvatar>
-                    <Avatar alt={`Avatar n°${key}`} src={value} />
-                  </ListItemAvatar>
-                  <ListItemText id={labelId} primary={`Archivo ${key + 1}`} />
-                </ListItemButton>
-              </ListItem>
-            );
-          })}
-        {invalid && <FormHelperText>{error?.message}</FormHelperText>}
+        {value && (
+          <ListItem
+            secondaryAction={
+              <IconButton edge="end" onClick={() => onChange('')}>
+                <DeleteOutlineOutlinedIcon />
+              </IconButton>
+            }
+            disablePadding
+          >
+            <ListItemButton>
+              <ListItemAvatar>
+                <Avatar alt="Avatar" src={value} />
+              </ListItemAvatar>
+              <ListItemText
+                id="checkbox-list-secondary-label"
+                primary="Archivo "
+              />
+            </ListItemButton>
+          </ListItem>
+        )}
+        {invalid && (
+          <FormHelperText>{strings.ERRORS[error?.message]}</FormHelperText>
+        )}
       </FormControl>
     </Col>
   );

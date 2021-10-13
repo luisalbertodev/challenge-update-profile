@@ -2,6 +2,7 @@
 import { FC } from 'react';
 import usePlacesAutocomplete from 'use-places-autocomplete';
 import { useController } from 'react-hook-form';
+import { useLanguage } from 'src/context/LanguagesContext';
 
 import { Col } from 'react-flexbox-grid';
 import FormHelperText from '@mui/material/FormHelperText';
@@ -41,6 +42,8 @@ const AutoCompletePlaceMaps: FC<IProps> = ({
   className,
   onGetMetadataAddress
 }) => {
+  const { strings } = useLanguage();
+
   const {
     ready,
     value,
@@ -62,7 +65,9 @@ const AutoCompletePlaceMaps: FC<IProps> = ({
 
     if (currentRow) {
       const { terms = [], description } = currentRow;
-      const [cityOrTown, federativeEntityOrState, country] = terms.map((el) => el.value);
+      const [cityOrTown, federativeEntityOrState, country] = terms.map(
+        (el) => el.value
+      );
 
       return {
         streetOrAvenue: description,
@@ -112,10 +117,13 @@ const AutoCompletePlaceMaps: FC<IProps> = ({
           onChange={(_event, val) => {
             handleSelect(val);
             inputProps.onChange(val);
-            onGetMetadataAddress && onGetMetadataAddress(handleOnGetMetadataAddress(val));
+            onGetMetadataAddress &&
+              onGetMetadataAddress(handleOnGetMetadataAddress(val));
           }}
         />
-        {invalid && <FormHelperText>{error?.message}</FormHelperText>}
+        {invalid && (
+          <FormHelperText>{strings.ERRORS[error?.message]}</FormHelperText>
+        )}
       </FormControl>
     </Col>
   );

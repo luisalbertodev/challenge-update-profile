@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useController } from 'react-hook-form';
-
+import { useLanguage } from 'src/context/LanguagesContext';
 import { Col } from 'react-flexbox-grid';
 import TextField, { BaseTextFieldProps } from '@mui/material/TextField';
 
@@ -27,6 +27,8 @@ const Input: FC<IProps> = ({
   hasSpacing = true,
   className
 }) => {
+  const { strings } = useLanguage();
+
   const {
     field: { ref, ...inputProps },
     fieldState: { invalid, error }
@@ -42,7 +44,7 @@ const Input: FC<IProps> = ({
         error={invalid}
         label={label}
         type={type}
-        helperText={error?.message}
+        helperText={strings.ERRORS[error?.message]}
         size={size}
         inputRef={ref}
         className="w-100"

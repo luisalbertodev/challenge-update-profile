@@ -1,6 +1,6 @@
 import { useState, FC, MouseEvent } from 'react';
 import { useController } from 'react-hook-form';
-
+import { useLanguage } from 'src/context/LanguagesContext';
 import { Col } from 'react-flexbox-grid';
 
 import IconButton from '@mui/material/IconButton';
@@ -28,6 +28,7 @@ const InputWithHidden: FC<IProps> = ({
   defaultValue = '',
   label
 }) => {
+  const { strings } = useLanguage();
   const [isShowPassword, setShowPassword] = useState<boolean>(false);
 
   const {
@@ -62,7 +63,7 @@ const InputWithHidden: FC<IProps> = ({
         error={invalid}
         label={label}
         type={isShowPassword ? 'text' : 'password'}
-        helperText={error?.message}
+        helperText={strings.ERRORS[error?.message]}
         size={size}
         className="w-100"
         InputProps={{ endAdornment }}

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useController } from 'react-hook-form';
-
+import { useLanguage } from 'src/context/LanguagesContext';
 import { Col } from 'react-flexbox-grid';
 import TextField, { BaseTextFieldProps } from '@mui/material/TextField';
 
@@ -24,7 +24,18 @@ interface IProps extends BaseTextFieldProps {
   className?: string;
 }
 
-const DatePicker: FC<IProps> = ({ xs = 12, md = 6, name, control, defaultValue = '', label, hasSpacing = true, className }) => {
+const DatePicker: FC<IProps> = ({
+  xs = 12,
+  md = 6,
+  name,
+  control,
+  defaultValue = '',
+  label,
+  hasSpacing = true,
+  className
+}) => {
+  const { strings } = useLanguage();
+
   const {
     field: { ref, ...inputProps },
     fieldState: { invalid, error }
@@ -36,7 +47,11 @@ const DatePicker: FC<IProps> = ({ xs = 12, md = 6, name, control, defaultValue =
   const isMobile = windowSize < 768;
 
   return (
-    <Col xs={xs} md={md} className={`${hasSpacing ? 'mt3 mb3' : ''} ${className}`}>
+    <Col
+      xs={xs}
+      md={md}
+      className={`${hasSpacing ? 'mt3 mb3' : ''} ${className}`}
+    >
       <FormControl sx={{ width: '100%' }} error={invalid}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           {!isMobile && (
@@ -59,7 +74,9 @@ const DatePicker: FC<IProps> = ({ xs = 12, md = 6, name, control, defaultValue =
               className="w-100"
             />
           )}
-          {invalid && <FormHelperText>{error?.message}</FormHelperText>}
+          {invalid && (
+            <FormHelperText>{strings.ERRORS[error?.message]}</FormHelperText>
+          )}
         </LocalizationProvider>
       </FormControl>
     </Col>

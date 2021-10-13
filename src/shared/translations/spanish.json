@@ -67,6 +67,21 @@
     "updateSuccess": "Cambio aplicado con exito",
     "updateError": "Hubo un error al guardar los datos"
   },
+  "ERRORS": {
+    "fieldRequired": "Campo requerido",
+    "passwordMinError": "Debe tener al menos 8 caracteres de longitud",
+    "oneLowerCaseError": "Debe contener al menos una letra minúscula",
+    "oneUpperCaseError": "Debe contener al menos una letra mayúscula",
+    "oneDigitError": "Debe contener al menos un dígito",
+    "specialCharacterError": "Debe contener un carácter especial",
+    "emailInvalid": "El correo ingreso no es valido",
+    "phoneNumberMaxLenth": "El número de teléfono debe tener 10 caracteres",
+    "phoneNumberInvalid": "El número de teléfono no es válido",
+    "numberInvalid": "Ingresa un número valido",
+    "zipCodeInvalid": "Ingresa un código postal valido",
+    "curpInvalid": "Ingresa una curp valida",
+    "clabeInvalid": "Ingresa una clabe valida"
+  },
   "loading": "Cargando...",
   "version": "© 2021 Developed by @luisalbertodev v.B1.0.0"
 }
