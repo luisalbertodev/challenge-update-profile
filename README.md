@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+# Detalles de proyecto
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Configuración de reglas de Airbnb y Linter
 
-## Available Scripts
+Las reglas de Airbnb permite tener guías de estilo seguidas por una gran comunidad de desarrolladores y ocupas las mejores practicas.
 
-In the project directory, you can run:
+## Lazy Loading y Suspense
 
-### `yarn start`
+Reducir el tiempo de carga y minorizar el gasto de datos de los usuarios es algo que ayuda a la reincidencia de la aplicación.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## TypeScript
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Permitirá evitar errores a corto, medio y largo plazo, así como ayudar a nuevos desarrolladores a tener una menor curva de aprendizaje cuando se lean el código del proyecto.
 
-### `yarn test`
+## Configuración de espacio de trabajo(local/desarrollo)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Tener espacios de trabajo es necesario para tener una aplicación escalable y flexible. Gestiona credenciales y realiza pruebas de forma más ágil.
 
-### `yarn build`
+## API Context React
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Compartir datos a travez de la aplicación es algo tan necesario hoy en día, con las ultimas actualizaciones de `React`, se agrego la `API Context` que permite manejar un estado global sin necesidad de pasar `propiedades` entre `componentes` junto a esto permite encapsular a nivel de componente.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Servicio de Idioma
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Gracias a la gran cantidad de interconexiones hoy podemos saber información de prácticamente desde cualquier lugar y de esto viene la necesidad de manejar diferentes idiomas en las aplicaciones por la gran posibilidad existente de escalar a otras regiones.
 
-### `yarn eject`
+## Servicio de Tema con Styled-components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Tener un sistema de diseño y un kit de herramientas es necesario para tener estructura y personalización rápida. Con `Styled-components` puede reutilizar componentes en otros sub-proyectos o crear tu propia biblioteca.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## API Google Maps
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Las personas desean agilizar su tiempo en formulario por ello es importante implementar herramientas que les ayuden a esto, por ejemplo la API de Google Maps Places
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## React-hook-forms y Yup validator
 
-## Learn More
+El rendimiento es algo que nos preocupa a los desarrolladores, sin embargo es algo que impacta directamente en la experiencia del usuario con `react-hooks-form` evitaremos renderizados innecesarios. Junto a esto tendremos más control sobre nuestos componentes de captura de información.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Otra forma de mejorar la experiencia de usuario es agregando validadores de información y brindando sus respectivos mensajes de error.
