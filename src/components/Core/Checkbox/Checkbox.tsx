@@ -2,6 +2,7 @@ import { FC } from 'react';
 import CheckboxMui from '@mui/material/Checkbox';
 import Typography from '@mui/material/Typography';
 import { useController } from 'react-hook-form';
+import { useLanguage } from 'src/context/LanguagesContext';
 
 import { Row, Col } from 'react-flexbox-grid';
 
@@ -26,6 +27,8 @@ const Checkbox: FC<IProps> = ({
   hasSpacing,
   className
 }) => {
+  const { strings } = useLanguage();
+
   const {
     field: { ref, ...inputProps },
     fieldState: { invalid, error }
@@ -49,7 +52,7 @@ const Checkbox: FC<IProps> = ({
         <Row>
           <Col xs={12}>
             <Typography variant="body2" color="error">
-              {error?.message}
+              {strings.ERRORS[error?.message]}
             </Typography>
           </Col>
         </Row>

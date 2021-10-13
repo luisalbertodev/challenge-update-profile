@@ -1,6 +1,26 @@
 import { Breakpoints, Devices } from 'src/shared/models/theme.model'
 import { IHashMap } from 'src/shared/models/languages.model'
 
+export const DICTIONARY_ERRORS = {
+   "AUTH": {
+      "fieldRequired": "fieldRequired",
+      "passwordMinError": "passwordMinError",
+      "oneLowerCaseError": "oneLowerCaseError",
+      "oneUpperCaseError": "oneUpperCaseError",
+      "oneDigitError": "oneDigitError",
+      "specialCharacterError": "specialCharacterError",
+      "emailInvalid": "emailInvalid"
+   },
+   "USER": {
+      "phoneNumberMaxLenth": "phoneNumberMaxLenth",
+      "phoneNumberInvalid": "phoneNumberInvalid",
+      "numberInvalid": "numberInvalid",
+      "zipCodeInvalid": "zipCodeInvalid",
+      "curpInvalid": "curpInvalid",
+      "clabeInvalid": "clabeInvalid",
+   }
+}
+
 export const INITIAL_USER = {
    companyName: '',
    tradename: '',
